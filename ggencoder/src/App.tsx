@@ -1,5 +1,11 @@
+import Header from "./components/Header";
+
 function App() {
-  return <div>Game Genie Encoder/Decoder</div>;
+  return (
+    <>
+      <Header version="0.0.1" />
+    </>
+  );
 }
 
 export default App;
