@@ -11,6 +11,12 @@ export enum Systems {
   GBGG,
 }
 
+export interface RawCode {
+  value: number;
+  address: number;
+  compare?: number;
+}
+
 export interface StateType {
   system: Systems;
   value: string;

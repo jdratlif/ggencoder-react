@@ -26,9 +26,11 @@ export const isValidAddress = (address: string, system: Systems) => {
     return false;
   }
 
-  if (system === Systems.SNES && v > 16777215) {
+  if ((system === Systems.SNES || system === Systems.GENESIS) && v > 16777215) {
     return false;
-  } else if (system !== Systems.SNES && v > 65535) {
+  }
+
+  if ((system === Systems.NES || system === Systems.GBGG) && v > 65535) {
     return false;
   }
 
@@ -59,9 +61,7 @@ export const isValidCode = (code: string, system: Systems) => {
       return false;
     }
 
-    if (!segments.every(hexRegex.test)) {
-      return false;
-    }
+    return segments.every((s) => hexRegex.test(s));
   } else if (system === Systems.GENESIS) {
     if (code.length !== 9) {
       return false;
@@ -73,9 +73,7 @@ export const isValidCode = (code: string, system: Systems) => {
       return false;
     }
 
-    if (!segments.every(genesisRegex.test)) {
-      return false;
-    }
+    return segments.every((s) => genesisRegex.test(s));
   } else if (system === Systems.GBGG) {
     if (code.length !== 7 && code.length !== 11) {
       return false;
@@ -87,9 +85,7 @@ export const isValidCode = (code: string, system: Systems) => {
       return false;
     }
 
-    if (!segments.every(hexRegex.test)) {
-      return false;
-    }
+    return segments.every((s) => hexRegex.test(s));
   }
 
   return true;
