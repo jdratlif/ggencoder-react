@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 // types
 import { Actions, Systems } from "../util/types";
+import { isValidCode } from "../util/validate";
 
 // components
 import { Form, Row, Col } from "react-bootstrap";
@@ -80,6 +81,7 @@ const MainForm = () => {
               name="code"
               value={state.code}
               onChange={handleDecode}
+              isInvalid={!isValidCode(state.code.toUpperCase(), state.system)}
             />
             <Form.Label htmlFor="inputCode">Game Genie Code</Form.Label>
           </Col>

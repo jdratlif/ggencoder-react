@@ -1,5 +1,5 @@
 import { Actions, ActionType, StateType } from "./types";
-import { isValidAddress, isValidValue } from "./validate";
+import { isValidAddress, isValidPartialCode, isValidValue } from "./validate";
 
 export const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
@@ -13,9 +13,15 @@ export const reducer = (state: StateType, action: ActionType) => {
         code: "",
       };
     case Actions.Decode:
+      const code = action.payload.toUpperCase();
+
+      if (!isValidPartialCode(code, state.system)) {
+        return state;
+      }
+
       return {
         ...state,
-        code: action.payload,
+        code,
       };
     case Actions.Encode:
       let { field, value } = action.payload;
