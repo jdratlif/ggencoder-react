@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer>
-      <h5>
-        Copyright (c) 2004-2006, 2008, 2016, 2021
+    <footer className="mt-3">
+      <h6 className="text-center">
+        Copyright &copy; 2021{" "}
         <a href="http://games.technoplaza.net">emuWorks</a>
-      </h5>
+      </h6>
     </footer>
   );
 };
