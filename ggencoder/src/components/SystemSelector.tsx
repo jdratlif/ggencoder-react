@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ButtonGroup, Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 import { Actions, Systems } from "../types";
 import StateContext from "./StateContext";
@@ -31,18 +31,23 @@ const SystemSelector = () => {
   };
 
   return (
-    <nav>
-      <ButtonGroup>
+    <nav className="my-3">
+      <Row className="gx-0">
         {systems.map((system) => (
-          <Button
-            key={system.id}
-            variant={system.id === state.system ? "success" : "primary"}
-            onClick={() => onSystemChange(system.id)}
-          >
-            {system.name}
-          </Button>
+          <Col xs={12} md={6} lg={3}>
+            <div className="d-grid">
+              <Button
+                key={system.id}
+                variant={system.id === state.system ? "success" : "primary"}
+                onClick={() => onSystemChange(system.id)}
+                className="rounded-0 shadow-none"
+              >
+                {system.name}
+              </Button>
+            </div>
+          </Col>
         ))}
-      </ButtonGroup>
+      </Row>
     </nav>
   );
 };
