@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 
-import { Actions, Systems } from "../types";
+import { Actions, Systems } from "../util/types";
 import StateContext from "./StateContext";
 
 const systems = [

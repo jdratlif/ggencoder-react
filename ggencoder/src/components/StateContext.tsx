@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ActionType, StateType, Systems } from "../types";
+import { ActionType, StateType, Systems } from "../util/types";
 
 export const initialState: StateType = {
   system: Systems.NES,

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // types
-import { Actions, Systems } from "../types";
+import { Actions, Systems } from "../util/types";
 
 // components
 import { Form, Row, Col } from "react-bootstrap";

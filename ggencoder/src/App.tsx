@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import { Actions, ActionType, StateType } from "./types";
+import { Actions, ActionType, StateType } from "./util/types";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
