@@ -34,10 +34,9 @@ const SystemSelector = () => {
     <nav className="my-3">
       <Row className="gx-0">
         {systems.map((system) => (
-          <Col xs={12} md={6} lg={3}>
+          <Col xs={12} md={6} lg={3} key={system.id}>
             <div className="d-grid">
               <Button
-                key={system.id}
                 variant={system.id === state.system ? "success" : "primary"}
                 onClick={() => onSystemChange(system.id)}
                 className="rounded-0 shadow-none"
