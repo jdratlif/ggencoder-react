@@ -18,10 +18,17 @@ const MainForm = () => {
   };
 
   const handleEncode: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const field = event.target.name;
+
+    if (field !== "value" && field !== "address" && field !== "compare") {
+      console.error(`Unknown field type $(field)`);
+      return;
+    }
+
     dispatch({
       type: Actions.Encode,
       payload: {
-        field: event.target.name,
+        field: field,
         value: event.target.value,
       },
     });
@@ -53,7 +60,7 @@ const MainForm = () => {
 
           <Col xs={8} md={3} lg={2}>
             <Form.Control
-              id="inputConfirm"
+              id="inputCompare"
               name="compare"
               disabled={
                 state.system === Systems.SNES ||
@@ -62,7 +69,7 @@ const MainForm = () => {
               value={state.compare}
               onChange={handleEncode}
             />
-            <Form.Label htmlFor="inputConfirm">Confirm</Form.Label>
+            <Form.Label htmlFor="inputCompare">Compare</Form.Label>
           </Col>
         </Row>
 

@@ -5,10 +5,10 @@ export enum Actions {
 }
 
 export enum Systems {
-  NES = 1,
-  SNES = 2,
-  GENESIS = 3,
-  GBGG = 4,
+  NES,
+  SNES,
+  GENESIS,
+  GBGG,
 }
 
 export interface StateType {
@@ -34,7 +34,7 @@ interface ActionDecode {
 interface ActionEncode {
   type: Actions.Encode;
   payload: {
-    field: string;
+    field: "value" | "address" | "compare";
     value: string;
   };
 }
