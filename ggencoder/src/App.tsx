@@ -15,6 +15,20 @@ const reducer = (state: StateType, action: ActionType) => {
       return {
         ...state,
         system: action.payload,
+        value: "",
+        address: "",
+        confirm: "",
+        code: "",
+      };
+    case Actions.Decode:
+      return {
+        ...state,
+        code: action.payload,
+      };
+    case Actions.Encode:
+      return {
+        ...state,
+        [action.payload.field]: action.payload.value,
       };
     default:
       return state;

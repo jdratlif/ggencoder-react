@@ -3,6 +3,10 @@ import { ActionType, StateType, Systems } from "../types";
 
 export const initialState: StateType = {
   system: Systems.NES,
+  value: "",
+  address: "",
+  compare: "",
+  code: "",
 };
 
 const StateContext = createContext<{
