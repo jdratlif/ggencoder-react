@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SystemSelector from "./components/SystemSelector";
 import StateContext, { initialState } from "./components/StateContext";
+import MainForm from "./components/MainForm";
+import { Container } from "react-bootstrap";
 
 const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
@@ -24,9 +26,12 @@ const App = () => {
 
   return (
     <StateContext.Provider value={{ state, dispatch }}>
-      <Header version="0.0.1" />
-      <SystemSelector />
-      <Footer />
+      <Container>
+        <Header version="0.0.1" />
+        <SystemSelector />
+        <MainForm />
+        <Footer />
+      </Container>
     </StateContext.Provider>
   );
 };
