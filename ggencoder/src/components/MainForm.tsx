@@ -1,26 +1,43 @@
+import { useContext } from "react";
+
+// types
+import { Systems } from "../types";
+
+// components
 import { Form, Row, Col } from "react-bootstrap";
+import StateContext from "./StateContext";
 
 const MainForm = () => {
+  const { state, dispatch } = useContext(StateContext);
+
   return (
-    <main>
+    <main className="text-center mt-4">
       <Form>
-        <Row>
-          <Col xs={12} md={3}>
-            <Form.Control id="inputValue" placeholder="value" />
+        <Row className="justify-content-center">
+          <Col xs={8} md={3} lg={2}>
+            <Form.Control id="inputValue" />
             <Form.Label htmlFor="inputValue">Value</Form.Label>
           </Col>
-          <Col xs={12} md={6}>
-            <Form.Control id="inputAddress" placeholder="address" />
+
+          <Col xs={8} md={6} lg={4}>
+            <Form.Control id="inputAddress" />
             <Form.Label htmlFor="inputAddress">Address</Form.Label>
           </Col>
-          <Col xs={12} md={3}>
-            <Form.Control id="inputConfirm" placeholder="confirm" />
+
+          <Col xs={8} md={3} lg={2}>
+            <Form.Control
+              id="inputConfirm"
+              disabled={
+                state.system == Systems.SNES || state.system == Systems.GENESIS
+              }
+            />
             <Form.Label htmlFor="inputConfirm">Confirm</Form.Label>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Form.Control id="inputCode" placeholder="Game Genie Code" />
+
+        <Row className="mt-3 justify-content-center">
+          <Col xs={8} md={6} lg={4}>
+            <Form.Control id="inputCode" />
             <Form.Label htmlFor="inputCode">Game Genie Code</Form.Label>
           </Col>
         </Row>
